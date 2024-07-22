@@ -1,0 +1,59 @@
+create context folder
+create notecontext.js and NoteState.js 
+
+/////////////////////////////////////////////////////
+  notecontext.js page
+  ___________________________________________________________
+import { createContext } from "react";
+
+const noteContext = createContext()
+
+export default noteContext
+
+  
+
+/////////////////////////////////////////////////////
+  NoteState.js page
+  ___________________________________________________________
+
+import NoteContext from './noteContext'
+
+
+const NoteState = (props)=> {
+    const state = {
+        "name": "anmol",
+        "last_name": "singh",
+        "color": "red"
+    }
+  return (
+    <>
+      <NoteContext.Provider value={state}>
+        {props.children}
+      </NoteContext.Provider>
+    </>
+  )
+}
+
+export default NoteState
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
+use this exp: about.js page
+  ___________________________________________________________
+import React , { useContext } from 'react'
+import noteContext from '../context/noteContext'
+function About() {
+  let a = useContext(noteContext)
+
+  return (
+    <>
+     
+    <h1>welcome to about {a.name}</h1>
+  </>
+  )
+}
+
+export default About
+
