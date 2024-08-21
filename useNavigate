@@ -1,0 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
+
+function navigate(props) {
+let navigate = useNavigate()
+
+// this use send path
+navigate("/")
+
+}
