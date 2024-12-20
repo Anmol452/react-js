@@ -1,0 +1,22 @@
+step1 - create File app.js 
+step2 - npm init -y
+step3 - npm i express dotenv cors mysql2
+
+
+
+app.js server chake code__________
+___________________________________________________________
+let express = require('express')
+let app = express()
+let port = 8001
+
+app.get('/', function(req, res){
+    res.send("server start")
+})
+
+app.listen(port, function(){
+    console.log('server start port'+port);
+    
+})
+
+___________________________________________________________
