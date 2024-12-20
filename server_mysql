@@ -1,22 +1,57 @@
 step1 - create File app.js 
 step2 - npm init -y
 step3 - npm i express dotenv cors mysql2
+step4 - db folder conn.js file
+step5 - Router folder router.js file
 
 
-
+___________________________________________________________
 app.js server chake code__________
 ___________________________________________________________
+
 let express = require('express')
 let app = express()
+let cors = require('cors')
+let mysql = require('mysql2')
 let port = 8001
+let con = require('./db/conn')
+const router = require('./Router/router')
 
-app.get('/', function(req, res){
-    res.send("server start")
-})
+// app.get('/', function(req, res){
+//     res.send("server start")
+// })
+
+// middleware
+app.use(express.json())
+app.use(cors())
+app.use(router)
 
 app.listen(port, function(){
     console.log('server start port'+port);
     
 })
+___________________________________________________________
+   conn.js 
+___________________________________________________________
+
+let mysql = require("mysql")
+
+let con = mysql.createConnection({
+    host:"localhost",
+    user:"root",
+    password:"",
+    database:"dbname"
+});
+
+con.connect(function(error){
+    if(error) throw error;
+    console.log("connent");
+});
+module.exports = con;
+___________________________________________________________
+ router.js 
+___________________________________________________________
 
 ___________________________________________________________
+___________________________________________________________
+
